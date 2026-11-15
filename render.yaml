@@ -1,0 +1,11 @@
+# Render üzerinde ücretsiz yayınlama ayarları (render.com)
+services:
+  - type: web
+    name: fondeep
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: FONDEEP_SECRET_KEY
+        generateValue: true
