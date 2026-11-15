@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Projeler | FonDeep{% endblock %}
+{% block content %}
+<div class="page-head">
+  <h1>Projeler</h1>
+  <span class="muted">{{ projects|length }} proje</span>
+</div>
+
+<form class="search-bar" method="get" action="{{ url_for('projects') }}">
+  <input type="text" name="q" value="{{ q }}" placeholder="Proje ara...">
+  <select name="kategori">
+    <option value="">Tüm kategoriler</option>
+    {% for category in categories %}
+      <option value="{{ category }}" {% if category == selected %}selected{% endif %}>{{ category }}</option>
+    {% endfor %}
+  </select>
+  <button class="btn btn-primary" type="submit">Ara</button>
+</form>
+
+{% if projects %}
+  <div class="project-grid">
+    {% for project in projects %}
+      {% include "_project_card.html" %}
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="empty">Aramanıza uygun proje bulunamadı.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}FonDeep | Kitle Fonlama Platformu{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-text">
+    <h1>Fikirler, <span>destekçileriyle</span> buluşuyor.</h1>
+    <p>FonDeep, girişimcilerin projelerini sunduğu ve destekçilerin bu projelere bağış yaparak hayata geçmesini sağladığı bir kitle fonlama platformudur.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="{{ url_for('projects') }}">Projeleri Keşfet</a>
+      <a class="btn btn-outline btn-lg" href="{{ url_for('create_project') }}">Projeni Başlat</a>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div><strong>{{ stats.projects }}</strong><span>Proje</span></div>
+    <div><strong>{{ stats.raised|tl }}</strong><span>Toplanan fon</span></div>
+    <div><strong>{{ stats.donations }}</strong><span>Bağış</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Öne Çıkan Projeler</h2>
+    <a href="{{ url_for('projects') }}">Tümünü gör</a>
+  </div>
+  <div class="project-grid">
+    {% for project in featured %}
+      {% include "_project_card.html" %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section">
+  <h2>Fonlama Modelleri</h2>
+  <div class="model-grid">
+    <div class="card model-card model-fixed">
+      <h3>{{ funding_types.fixed.label }}</h3>
+      <p>{{ funding_types.fixed.desc }}</p>
+    </div>
+    <div class="card model-card model-flexible">
+      <h3>{{ funding_types.flexible.label }}</h3>
+      <p>{{ funding_types.flexible.desc }}</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

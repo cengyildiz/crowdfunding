@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Girişimci Paneli | FonDeep{% endblock %}
+{% block content %}
+<div class="switch switch-inline">
+  <a href="{{ url_for('switch_panel', panel='destekci') }}">Destekçi Paneli</a>
+  <a class="active" href="{{ url_for('switch_panel', panel='girisimci') }}">Girişimci Paneli</a>
+</div>
+
+<div class="page-head">
+  <h1>Projelerim</h1>
+  <a class="btn btn-primary" href="{{ url_for('create_project') }}">Yeni Proje</a>
+</div>
+
+{% if projects %}
+  <div class="table-wrap">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Proje</th>
+          <th>Fonlama Modeli</th>
+          <th>Toplanan / Hedef</th>
+          <th>İlerleme</th>
+          <th>Kalan Süre</th>
+          <th>Durum</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for project in projects %}
+          <tr>
+            <td><a href="{{ url_for('project_detail', project_id=project.id) }}">{{ project.title }}</a></td>
+            <td>{{ project.funding_label }}</td>
+            <td>{{ project.raised|tl }} / {{ project.goal_amount|tl }}</td>
+            <td>
+              <div class="progress progress-sm"><div class="progress-bar" style="width: {{ project.bar_percent }}%"></div></div>
+              <small>%{{ project.percent }}</small>
+            </td>
+            <td>{% if project.is_open %}{{ project.days_left }} gün{% else %}Sona erdi{% endif %}</td>
+            <td>{{ project.status }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <p class="empty">Henüz bir projeniz yok. İlk projenizi oluşturmak için "Yeni Proje" düğmesini kullanın.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Destekçi Paneli | FonDeep{% endblock %}
+{% block content %}
+<div class="switch switch-inline">
+  <a class="active" href="{{ url_for('switch_panel', panel='destekci') }}">Destekçi Paneli</a>
+  <a href="{{ url_for('switch_panel', panel='girisimci') }}">Girişimci Paneli</a>
+</div>
+
+<div class="page-head">
+  <h1>Bağışlarım</h1>
+  <a class="btn btn-primary" href="{{ url_for('projects') }}">Projeleri Keşfet</a>
+</div>
+
+<div class="stat-card stat-card-row">
+  <div><strong>{{ donations|length }}</strong><span>Bağış</span></div>
+  <div><strong>{{ total|tl }}</strong><span>Toplam destek</span></div>
+</div>
+
+{% if donations %}
+  <div class="table-wrap">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Proje</th>
+          <th>Tutar</th>
+          <th>Mesaj</th>
+          <th>Tarih</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for donation in donations %}
+          <tr>
+            <td><a href="{{ url_for('project_detail', project_id=donation.project_id) }}">{{ donation.title }}</a></td>
+            <td>{{ donation.amount|tl }}</td>
+            <td class="muted">{{ donation.message or '-' }}</td>
+            <td class="muted">{{ donation.created_at[:10] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <p class="empty">Henüz bir bağış yapmadınız.</p>
+{% endif %}
+{% endblock %}

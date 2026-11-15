@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Yeni Proje Oluştur | FonDeep{% endblock %}
+{% block content %}
+<div class="card form-card">
+  <h1>Yeni Proje Oluştur</h1>
+  <form method="post" action="{{ url_for('create_project') }}">
+    <label for="title">Proje adı</label>
+    <input type="text" id="title" name="title" value="{{ form.title }}" maxlength="120">
+
+    <label for="short_desc">Kısa açıklama</label>
+    <input type="text" id="short_desc" name="short_desc" value="{{ form.short_desc }}" maxlength="160">
+
+    <label for="description">Detaylı açıklama</label>
+    <textarea id="description" name="description" rows="6">{{ form.description }}</textarea>
+
+    <div class="form-row">
+      <div>
+        <label for="category">Kategori</label>
+        <select id="category" name="category">
+          {% for category in categories %}
+            <option value="{{ category }}" {% if category == form.category %}selected{% endif %}>{{ category }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <label for="goal_amount">Hedef tutar (₺)</label>
+        <input type="number" id="goal_amount" name="goal_amount" value="{{ form.goal_amount }}" min="1" step="any">
+      </div>
+      <div>
+        <label for="deadline">Bitiş tarihi</label>
+        <input type="date" id="deadline" name="deadline" value="{{ form.deadline }}">
+      </div>
+    </div>
+
+    <label>Fonlama modeli</label>
+    <div class="radio-grid">
+      {% for key, model in funding_types.items() %}
+        <label class="radio-card">
+          <input type="radio" name="funding_type" value="{{ key }}" {% if key == form.funding_type %}checked{% endif %}>
+          <span>
+            <strong>{{ model.label }}</strong>
+            <small>{{ model.desc }}</small>
+          </span>
+        </label>
+      {% endfor %}
+    </div>
+
+    <button class="btn btn-primary btn-lg" type="submit">Projeyi Yayınla</button>
+  </form>
+</div>
+{% endblock %}

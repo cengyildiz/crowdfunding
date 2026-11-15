@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Giriş Yap | FonDeep{% endblock %}
+{% block content %}
+<div class="auth">
+  <div class="switch">
+    {% for key, panel in panels.items() %}
+      <a class="{{ 'active' if key == active }}" href="{{ url_for('login', panel=key) }}">{{ panel.label }}</a>
+    {% endfor %}
+  </div>
+
+  <div class="card auth-card">
+    <h1>{{ panels[active].title }}</h1>
+    <p class="muted">{{ panels[active].desc }}</p>
+    <form method="post" action="{{ url_for('login') }}">
+      <input type="hidden" name="panel" value="{{ active }}">
+      <label for="email">E-posta</label>
+      <input type="email" id="email" name="email" value="{{ email }}" required>
+      <label for="password">Şifre</label>
+      <input type="password" id="password" name="password" required>
+      <button class="btn btn-primary btn-block" type="submit">Giriş Yap</button>
+    </form>
+    <p class="auth-alt">Hesabınız yok mu? <a href="{{ url_for('register') }}">Kayıt olun</a></p>
+  </div>
+</div>
+{% endblock %}

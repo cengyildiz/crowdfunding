@@ -1,0 +1,25 @@
+<a class="card project-card" href="{{ url_for('project_detail', project_id=project.id) }}">
+  <div class="card-cover {{ project.cover }}">
+    <span class="category-pill">{{ project.category }}</span>
+  </div>
+  <div class="card-body">
+    <h3>{{ project.title }}</h3>
+    <p class="card-desc">{{ project.short_desc }}</p>
+    <div class="progress"><div class="progress-bar" style="width: {{ project.bar_percent }}%"></div></div>
+    <div class="card-stats">
+      <div><strong>%{{ project.percent }}</strong><span>fonlandı</span></div>
+      <div><strong>{{ project.raised|tl }}</strong><span>{{ project.goal_amount|tl }} hedef</span></div>
+      <div>
+        {% if project.is_open %}
+          <strong>{{ project.days_left }}</strong><span>gün kaldı</span>
+        {% else %}
+          <strong>Bitti</strong><span>süre doldu</span>
+        {% endif %}
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="funding-pill">{{ project.funding_label }}</span>
+      <span class="owner">{{ project.owner_name }}</span>
+    </div>
+  </div>
+</a>

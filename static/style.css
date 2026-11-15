@@ -1,0 +1,812 @@
+/* FonDeep - sitenin bütün stili bu dosyadadır. */
+
+:root {
+  --navy: #0b1a3f;
+  --blue: #1f5cff;
+  --blue-dark: #1848d6;
+  --green: #10b981;
+  --bg: #f5f7fb;
+  --border: #e3e8f1;
+  --text: #0b1a3f;
+  --muted: #5d6679;
+  --danger: #c0392b;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.1rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.main {
+  flex: 1;
+  padding-top: 28px;
+  padding-bottom: 72px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ---------- Üst menü ---------- */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: var(--navy);
+}
+
+.logo span {
+  color: var(--blue);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-links > a:not(.btn):not(.user-chip) {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.user-chip {
+  padding: 9px 16px;
+  border-radius: 10px;
+  background: #f1f4f9;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+/* ---------- Düğmeler ---------- */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--blue-dark);
+}
+
+.btn-outline {
+  background: #fff;
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.btn-lg {
+  padding: 12px 22px;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  padding: 12px 18px;
+  margin-top: 18px;
+}
+
+/* ---------- Bildirim mesajları ---------- */
+.flash {
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.flash-success {
+  background: #e7f8f0;
+  color: #0a7a55;
+}
+
+.flash-error {
+  background: #fdecea;
+  color: var(--danger);
+}
+
+.flash-info {
+  background: #e8efff;
+  color: #1c3fa8;
+}
+
+/* ---------- Kartlar ---------- */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 10px rgba(11, 26, 63, 0.05);
+}
+
+/* ---------- Ana sayfa ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding: 32px 0 24px;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+}
+
+.hero h1 span {
+  color: var(--blue);
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin: 18px 0 24px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.stat-card {
+  background: var(--navy);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 28px 30px;
+  display: grid;
+  gap: 16px;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 1.7rem;
+  line-height: 1.2;
+}
+
+.stat-card span {
+  font-size: 0.85rem;
+  color: #c7d1e6;
+}
+
+.stat-card-row {
+  grid-template-columns: 1fr 1.2fr;
+  max-width: 460px;
+  margin-bottom: 28px;
+}
+
+.section {
+  margin-top: 56px;
+}
+
+.section > h2,
+.section-head {
+  margin-bottom: 16px;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.model-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.model-card {
+  padding: 26px 28px 30px;
+  border-top: 4px solid var(--blue);
+}
+
+.model-card.model-flexible {
+  border-top-color: var(--green);
+}
+
+.model-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.model-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- Proje kartları ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--text);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(11, 26, 63, 0.1);
+}
+
+.card-cover,
+.detail-cover {
+  position: relative;
+  height: 140px;
+}
+
+.cover-teknoloji {
+  background: linear-gradient(135deg, #2457ff, #5c86ff);
+}
+
+.cover-egitim {
+  background: linear-gradient(135deg, #f59e0b, #ffd23f);
+}
+
+.cover-sanat {
+  background: linear-gradient(135deg, #b144c7, #f47aa9);
+}
+
+.cover-cevre {
+  background: linear-gradient(135deg, #2f9a44, #6fdc7f);
+}
+
+.cover-sosyal {
+  background: linear-gradient(135deg, #ea580c, #ffa64d);
+}
+
+.category-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.card-body {
+  padding: 18px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-body h3 {
+  font-size: 1.1rem;
+}
+
+.card-desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 6px 0 14px;
+  flex: 1;
+}
+
+.progress {
+  height: 8px;
+  border-radius: 999px;
+  background: #e8edf5;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.progress-sm {
+  height: 7px;
+  max-width: 130px;
+  margin-bottom: 2px;
+}
+
+.card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.card-stats strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.card-stats span {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.funding-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eaf0ff;
+  color: #1c4fd8;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.owner {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Proje listesi ---------- */
+.page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0 22px;
+}
+
+.search-bar {
+  display: grid;
+  grid-template-columns: 1fr 200px auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.empty {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ---------- Form alanları ---------- */
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid rgba(31, 92, 255, 0.25);
+  border-color: var(--blue);
+}
+
+input.invalid {
+  border-color: var(--danger);
+}
+
+.field-error {
+  margin: 6px 0 0;
+  color: var(--danger);
+  font-size: 0.85rem;
+}
+
+/* ---------- Proje detay sayfası ---------- */
+.back-link {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.detail-cover {
+  height: 240px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+
+.detail-main h2 {
+  margin: 22px 0 12px;
+}
+
+.owner-line {
+  color: var(--muted);
+  margin: 12px 0;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.description {
+  margin: 0;
+}
+
+.ai-box {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1.5px dashed #b9a5f2;
+  border-radius: 12px;
+  background: #f3effe;
+}
+
+.ai-box h3 {
+  font-size: 0.98rem;
+  margin-bottom: 6px;
+}
+
+.ai-box p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.backer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.backer-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.backer-message {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.backer-amount {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.detail-side {
+  padding: 24px;
+}
+
+.raised {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1.2;
+}
+
+.goal {
+  color: var(--muted);
+  margin: 4px 0 12px;
+}
+
+.status-line {
+  margin: 0 0 10px;
+  font-size: 0.92rem;
+}
+
+.funding-desc {
+  margin: 10px 0 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.quick-amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.quick-amount {
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.quick-amount:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.closed-note {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* ---------- Giriş ve kayıt ---------- */
+.auth {
+  max-width: 410px;
+  margin: 16px auto 0;
+}
+
+.auth-card {
+  padding: 30px;
+}
+
+.auth-card h1 {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+}
+
+.auth-card .muted {
+  margin: 0 0 4px;
+}
+
+.auth-alt {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background: #e9edf5;
+}
+
+.switch a {
+  padding: 9px 18px;
+  border-radius: 9px;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.switch a.active {
+  background: #fff;
+  color: var(--text);
+  box-shadow: 0 1px 4px rgba(11, 26, 63, 0.12);
+}
+
+.switch-inline {
+  display: inline-grid;
+}
+
+/* ---------- Paneller ---------- */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.table th,
+.table td {
+  padding: 13px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  background: #f1f4f9;
+  font-weight: 700;
+}
+
+.table tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ---------- Proje oluşturma ---------- */
+.form-card {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.form-card h1 {
+  font-size: 1.7rem;
+  margin-bottom: 6px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.radio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.radio-card {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.radio-card input {
+  margin-top: 3px;
+}
+
+.radio-card strong {
+  display: block;
+  font-size: 0.88rem;
+}
+
+.radio-card small {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.78rem;
+}
+
+/* ---------- 404 ve alt bilgi ---------- */
+.not-found {
+  padding: 70px 0;
+  text-align: center;
+}
+
+.not-found h1 {
+  font-size: 4rem;
+  color: var(--blue);
+}
+
+.not-found p {
+  color: var(--muted);
+  margin: 10px 0 22px;
+}
+
+.footer {
+  background: var(--navy);
+  color: #c7d1e6;
+  padding: 22px 0;
+  font-size: 0.85rem;
+}
+
+/* ---------- Küçük ekranlar ---------- */
+@media (max-width: 860px) {
+  .hero,
+  .detail,
+  .model-grid,
+  .radio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    gap: 28px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-bar,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-inner {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
